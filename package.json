@@ -1,0 +1,22 @@
+{
+  "name": "pocket-expense-tracker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pocket personal money tracker Android app built with Capacitor",
+  "scripts": {
+    "build:web": "node scripts/prepare-web.cjs",
+    "build:android": "npm run build:web && npm run build:native && cap sync android",
+    "android:debug": "cd android && ./gradlew assembleDebug",
+    "build:native": "esbuild src/native-back.js --bundle --format=iife --outfile=www/native-back.js"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.0.0",
+    "@capacitor/app": "^8.0.0",
+    "@capacitor/core": "^8.0.0"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^8.0.0",
+    "esbuild": "^0.25.0"
+  }
+}
